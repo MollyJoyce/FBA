@@ -77,8 +77,19 @@ struct ContentView: View {
 
 
 struct ObsView: View{
+    
+    @State private var ObsStu: String = ""
+    
     var body: some View{
         Text("Obs")
+        
+        VStack{
+            Form{
+                TextField(text: $ObsStu){
+                    Text("Student")
+                }
+            }
+        }
     }
 }
 
@@ -86,6 +97,7 @@ struct ObsView: View{
 struct PlanView: View{
     var body: some View{
         Text("Plan")
+
     }
 }
 
@@ -116,9 +128,14 @@ struct StuView: View {
     
     var body: some View{
         VStack{
+            
+            let current = students[CurrentSelection]
+            
             ForEach(students, id: \.self){option in
                 HStack{
                      Text(option.name)
+                    
+                        .foregroundColor(current == option ? Color(.black) : Color(.gray))
                 }
                 
                 .onTapGesture{
