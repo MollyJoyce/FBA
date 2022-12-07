@@ -19,6 +19,10 @@ struct Student: Hashable {
     let grade: Int
 }
 
+var Stus = [String]()
+
+var AddStu = [String]()
+
 
 
 struct ContentView: View {
@@ -60,6 +64,7 @@ struct ContentView: View {
                 Stu()
             default:
                 StuView(
+                    //CurrentStu,
                     CurrentSelection: $CurrentOption,
                     students: students
                     )
@@ -106,6 +111,8 @@ struct PlanView: View{
 
 struct NewStu: View{
     
+
+    
     @State private var FName: String = ""
     
     var body: some View{
@@ -116,11 +123,15 @@ struct NewStu: View{
                 Text("First Name")
             }
         }
+        
     }
+   // Stus.append(contentsOf: AddStu)
 }
 
 
 struct StuView: View {
+    
+    //@Binding var CurrentStu: Int
     
     @Binding var CurrentSelection: Int
     
@@ -129,7 +140,7 @@ struct StuView: View {
     var body: some View{
         VStack{
             
-            let current = students[CurrentSelection]
+            let current = students[CurrentStu]
             
             ForEach(students, id: \.self){option in
                 HStack{
@@ -139,7 +150,7 @@ struct StuView: View {
                 }
                 
                 .onTapGesture{
-                   self.CurrentSelection = 4
+                   
                }
           //enter text
             /*https://developer.apple.com/documentation/swiftui/textfield  https://developer.apple.com/documentation/swiftui/form
