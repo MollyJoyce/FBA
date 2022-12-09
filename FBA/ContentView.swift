@@ -125,13 +125,13 @@ struct NewStu: View{
         }
         
     }
-   // Stus.append(contentsOf: AddStu)
+    //Stus.append(contentsOf: AddStu)
 }
 
 
 struct StuView: View {
     
-    //@Binding var CurrentStu: Int
+    @Binding var CurrentStu: Int
     
     @Binding var CurrentSelection: Int
     
